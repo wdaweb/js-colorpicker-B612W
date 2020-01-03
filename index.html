@@ -2,234 +2,207 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Document</title>
-
     <style>
       body {
-        margin: auto;
+        margin: 0;
+        background: burlywood;
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        height: 100vh;
+        /* align-content: center; */
       }
-
-      #heart {
-        position: relative;
-        width: 100px;
-        height: 110px;
-      }
-      #heart:before,
-      #heart:after {
-        position: absolute;
-        content: "";
-        left: 50px;
-        top: 20px;
-        width: 50px;
-        height: 80px;
+      .circle {
+        width: 300px;
+        height: 300px;
         background: white;
-        -moz-border-radius: 50px 50px 0 0;
-        border-radius: 50px 50px 0 0;
-        -webkit-transform: rotate(-45deg);
-        -moz-transform: rotate(-45deg);
-        -ms-transform: rotate(-45deg);
-        -o-transform: rotate(-45deg);
-        transform: rotate(-45deg);
-        -webkit-transform-origin: 0 100%;
-        -moz-transform-origin: 0 100%;
-        -ms-transform-origin: 0 100%;
-        -o-transform-origin: 0 100%;
-        transform-origin: 0 100%;
+        border-radius: 300px;
+        margin: 20px;
+        padding: 20px;
+        position: relative;
       }
-      #heart:after {
-        left: 0;
-        -webkit-transform: rotate(45deg);
-        -moz-transform: rotate(45deg);
-        -ms-transform: rotate(45deg);
-        -o-transform: rotate(45deg);
-        transform: rotate(45deg);
-        -webkit-transform-origin: 100% 100%;
-        -moz-transform-origin: 100% 100%;
-        -ms-transform-origin: 100% 100%;
-        -o-transform-origin: 100% 100%;
-        transform-origin: 100% 100%;
+      h3 {
+        text-align: center;
+        position: relative;
+        z-index: 999;
       }
-
-      .heart {
-        -webkit-animation: jump 1s infinite ease-out;
-        -moz-animation: jump 1s infinite ease-out;
-        -o-animation: jump 1s infinite ease-out;
-        animation: jump 1s infinite ease-out;
+      .jhour1 {
+        /*時針*/
+        width: 10px;
+        height: 30%;
+        background: #00f;
+        position: absolute;
+        left: 50%;
+        top: 25%;
+        margin-left: -5px;
       }
-      @-webkit-keyframes jump {
-        0%,
-        60%,
-        75%,
-        90%,
-        100% {
-          -webkit-transform: scale(1);
-        }
-        15% {
-          -webkit-transform: scale(0.6);
-        }
-        30% {
-          -webkit-transform: scale(1);
-        }
-        45% {
-          -webkit-transform: scale(0.7);
-        }
+      .jmin1 {
+        /*分針*/
+        width: 10px;
+        height: 40%;
+        background: #0f0;
+        position: absolute;
+        left: 50%;
+        top: 15%;
+        margin-left: -5px;
       }
-      @-moz-keyframes jump {
-        0%,
-        60%,
-        75%,
-        90%,
-        100% {
-          -moz-transform: scale(1);
-        }
-        15% {
-          -moz-transform: scale(0.6);
-        }
-        30% {
-          -moz-transform: scale(1);
-        }
-        45% {
-          -moz-transform: scale(0.7);
-        }
+      .jsec1 {
+        /*秒針*/
+        width: 4px;
+        height: 50%;
+        background: #f00;
+        position: absolute;
+        left: 50%;
+        top: 5%;
+        margin-left: -2px;
       }
-      @-o-keyframes jump {
-        0%,
-        60%,
-        75%,
-        90%,
-        100% {
-          -o-transform: scale(1);
-        }
-        15% {
-          -o-transform: scale(0.6);
-        }
-        30% {
-          -o-transform: scale(1);
-        }
-        45% {
-          -o-transform: scale(0.7);
-        }
+      .zsec1 {
+        width: 300px;
+        height: 300px;
+        position: absolute;
+        animation: j_s 60s infinite linear;
       }
-      @keyframes jump {
-        0%,
-        60%,
-        75%,
-        90%,
-        100% {
-          transform: scale(1);
-        }
-        15% {
-          transform: scale(0.6);
-        }
-        30% {
-          transform: scale(1);
-        }
-        45% {
-          transform: scale(0.7);
-        }
+      .zmin1 {
+        width: 300px;
+        height: 300px;
+        position: absolute;
+        animation: j_m 3600s infinite linear;
+      }
+      .zhour1 {
+        width: 300px;
+        height: 300px;
+        position: absolute;
+        animation: j_h 43200s infinite linear;
+      }
+      .jhour2 {
+        /*時針*/
+        width: 16px;
+        height: 300px;
+        background: url("hh.png");
+        position: absolute;
+        left: 50%;
+        margin-left: -8px;
+        animation: j_h 43200s infinite linear;
+      }
+      .jmin2 {
+        /*分針*/
+        width: 16px;
+        height: 300px;
+        background: url("mm.png");
+        position: absolute;
+        left: 50%;
+        margin-left: -8px;
+        animation: j_m 3600s infinite linear;
+      }
+      .jsec2 {
+        /*秒針*/
+        width: 16px;
+        height: 300px;
+        background: url("ss.png");
+        position: absolute;
+        left: 50%;
+        margin-left: -8px;
+        animation: j_s 60s infinite linear;
+      }
+      .ohour3 {
+        animation: j_h 43200s infinite linear;
+        transform-origin: 50% 82px;
+      }
+      .omin3 {
+        animation: j_m 3600s infinite linear;
+        transform-origin: 50% 116px;
+      }
+      .osec3 {
+        animation: j_s 60s infinite linear;
+        transform-origin: 50% 150px;
+      }
+      .ohour4 {
+        transform-origin: 50% 82px;
+      }
+      .omin4 {
+        transform-origin: 50% 116px;
+      }
+      .osec4 {
+        transform-origin: 50% 150px;
       }
     </style>
+    <script>
+      /*min=45; => y=270 */
+      var time = new Date();
+      var pos_s = time.getSeconds();
+      var pos_m = time.getMinutes();
+      var pos_h = time.getHours();
+      var x = pos_s * 6;
+      var y = pos_m * 6 + pos_s * 0.1; /*對Y來說還有一個角度是60秒滿足6度*/
+      var z = pos_h * 30 + pos_m * 0.5; /*對Z來說還有一個角度是60分鐘滿足30度*/
+      document.write(`
+      <style>
+      @keyframes j_s {
+        from {transform: rotate(${x}deg);}
+        to {transform: rotate(${360 + x}deg);}
+      }
+      @keyframes j_m {
+        from {transform: rotate(${y}deg);}
+        to {transform: rotate(${360 + y}deg);}
+      }
+      @keyframes j_h {
+        from {transform: rotate(${z}deg);}
+        to {transform: rotate(${360 + z}deg);}
+      }
+    </style>
+      `);
+    </script>
   </head>
-
   <body>
-    <div id="heart" class="heart"></div>
-    <div>
-      <input type="button" value="R" onclick="ask('r')" />
-      <input type="range" min="0" max="255" id="rr" oninput="sbar('r',this)" />
-      <br />
-      <input type="button" value="G" onclick="ask('g')" />
-      <input type="range" min="0" max="255" id="gg" oninput="sbar('g',this)" />
-      <br />
-      <input type="button" value="B" onclick="ask('b')" />
-      <input type="range" min="0" max="255" id="bb" oninput="sbar('b',this)" />
-      <br /><br />
-      <input
-        type="button"
-        value="+"
-        onmousedown="cont('add')"
-        onmouseup="clearInterval(run)"
-        onmouseout="clearInterval(run)"
-      />
-      <input
-        type="button"
-        value="-"
-        onmousedown="cont('sub')"
-        onmouseup="clearInterval(run)"
-        onmouseout="clearInterval(run)"
-      />
-      <input
-        type="button"
-        value="?"
-        onmousedown="cont('rand')"
-        onmouseup="clearInterval(run)"
-        onmouseout="clearInterval(run)"
-      />
+    <div class="circle">
+      <div class="jmin2"></div>
+      <div class="jhour2"></div>
+      <div class="jsec2"></div>
     </div>
+
+    <script>
+      /*初始先ON一遍DOM*/
+      document.getElementsByClassName(
+        "osec4"
+      )[0].style.transform = `rotate(${x}deg)`;
+      document.getElementsByClassName(
+        "omin4"
+      )[0].style.transform = `rotate(${y}deg)`;
+      document.getElementsByClassName(
+        "ohour4"
+      )[0].style.transform = `rotate(${z}deg)`;
+
+      /*跑reply*/
+      function overtime() {
+        time = new Date();
+        pos_s = time.getSeconds();
+        pos_m = time.getMinutes();
+        pos_h = time.getHours();
+        x = pos_s * 6;
+        y = pos_m * 6 + pos_s * 0.1; /*對Y來說還有一個角度是60秒滿足6度*/
+        z = pos_h * 30 + pos_m * 0.5; /*對Z來說還有一個角度是60分鐘滿足30度*/
+        document.getElementsByClassName(
+          "osec4"
+        )[0].style.transform = `rotate(${x}deg)`;
+        document.getElementsByClassName(
+          "omin4"
+        )[0].style.transform = `rotate(${y}deg)`;
+        document.getElementsByClassName(
+          "ohour4"
+        )[0].style.transform = +`rotate(${z}deg)`;
+      }
+
+      var loop = setInterval(overtime, 1000);
+
+      function ctl(who) {
+        if (who.textContent == "STOP") {
+          clearInterval(loop);
+          who.textContent = "PLAY";
+        } else {
+          loop = setInterval(overtime, 1000);
+          who.textContent = "STOP";
+        }
+      }
+    </script>
   </body>
 </html>
-<script>
-  function padLeft(str) {
-    //補位數
-    str = str.toString(16);
-    return str.length >= 2 ? str : "0" + str;
-  }
-  function print_rgb() {
-    //print color
-    document.getElementById("heart").style.backgroundColor =
-      "rgb(" + rgb.r + "," + rgb.g + "," + rgb.b + ")";
-
-    document.getElementById("heart").style.color =
-      "rgb(" + (255 - rgb.r) + "," + (255 - rgb.g) + "," + (255 - rgb.b) + ")";
-    document.getElementById("rr").value = rgb.r;
-    document.getElementById("gg").value = rgb.g;
-    document.getElementById("bb").value = rgb.b;
-    document.getElementById("heart").innerHTML =
-      "#" + padLeft(rgb.r) + padLeft(rgb.g) + padLeft(rgb.b);
-  }
-
-  function ask(clr) {
-    //詢問單色並替換heart'+'heart:before'+'heart:after
-    do {
-      newclr = prompt("輸入0~255", rgb[clr]);
-    } while (!(0 <= newclr && newclr <= 255));
-    rgb[clr] = newclr == null ? rgb[clr] : Number(newclr);
-    print_rgb();
-  }
-
-  var rgb = { r: 0, g: 0, b: 0 },
-    run; //初始化
-  rgb.r = Math.floor(Math.random() * 256);
-  rgb.g = Math.floor(Math.random() * 256);
-  rgb.b = Math.floor(Math.random() * 256);
-  print_rgb();
-
-  function cont(select) {
-    //連續作業
-    run = setInterval(function() {
-      switch (select) {
-        case "add":
-          if (rgb.r < 255) rgb.r++;
-          if (rgb.g < 255) rgb.g++;
-          if (rgb.b < 255) rgb.b++;
-          break;
-        case "sub":
-          if (rgb.r > 0) rgb.r--;
-          if (rgb.g > 0) rgb.g--;
-          if (rgb.b > 0) rgb.b--;
-          break;
-        case "rand":
-          rgb.r = Math.floor(Math.random() * 256);
-          rgb.g = Math.floor(Math.random() * 256);
-          rgb.b = Math.floor(Math.random() * 256);
-          break;
-      }
-      print_rgb();
-    }, 30);
-  }
-  function sbar(clr, obj) {
-    rgb[clr] = Number(obj.value);
-    print_rgb();
-  }
-</script>
